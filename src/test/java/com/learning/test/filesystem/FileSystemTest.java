@@ -1,7 +1,6 @@
 package com.learning.test.filesystem;
 
 import com.learning.hadoop.filesystem.HDFSUtil;
-import com.sun.org.apache.regexp.internal.RE;
 import org.apache.hadoop.conf.Configuration;
 import org.junit.Test;
 
@@ -12,7 +11,6 @@ import java.io.IOException;
  * @date 2019-08-16
  */
 public class FileSystemTest {
-
 
 
     @Test
@@ -26,8 +24,32 @@ public class FileSystemTest {
         System.out.println(is);
     }
 
-    public void testCreateFile() {
-        //HDFSUtil.createFile();
+    @Test
+    public void testCreateFile() throws Exception {
+        //File f = new File("src/main/resources/1.txt");
+        //System.out.println(f.exists());
+        //int length = (int) f.length();
+        //byte[] data = new byte[length];
+        //try {
+        //    int read = new FileInputStream(f).read(data);
+        //    HDFSUtil.createFile(getConf(), "/zhangsx/1.txt", data);
+        //} catch (IOException e) {
+        //    e.printStackTrace();
+        //}
+        HDFSUtil.createFile(getConf(), "/zhangsx/2.txt", "zhangsx is a handsome boy".getBytes());
+
+    }
+
+    @Test
+    public void readFile() throws IOException {
+        //String s = HDFSUtil.readFile(getConf(), "/zhangsx/1.txt");
+        String s = HDFSUtil.readFile(getConf(), "/zhangsx/3.txt");
+        System.out.println(s);
+    }
+
+    @Test
+    public void uploadFile() throws IOException {
+        HDFSUtil.uploadFile(getConf(), "src/main/resources/1.txt", "/zhangsx/3.txt");
     }
 
     public Configuration getConf() {
