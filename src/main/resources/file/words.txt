@@ -1,0 +1,14 @@
+start 
+apple
+stop
+banana
+star
+ant
+boy
+girl
+guy
+green
+red
+yello
+reduce
+yes
